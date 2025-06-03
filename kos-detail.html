@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Detail Kos - KosFinder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+</head>
+<body class="min-h-screen bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-primary">KosFinder</a>
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-secondary">Beranda</a>
+        <a href="kos-list.html" class="hover:text-secondary">Daftar Kos</a>
+        <a href="gallery.html" class="hover:text-secondary">Galeri</a>
+        <a href="reviews.html" class="hover:text-secondary">Ulasan</a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="login.html" class="px-4 py-2 rounded hover:bg-gray-100">Masuk</a>
+        <a href="register.html" class="px-4 py-2 bg-primary text-white rounded hover:bg-secondary">Daftar</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Detail Content -->
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Kos Mawar Indah</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Gambar Kos -->
+      <div>
+        <img
+          src="https://picsum.photos/600/400?random=101"
+          alt="Kos Mawar Indah"
+          class="rounded-lg shadow-md w-full object-cover"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Info Kos -->
+      <div>
+        <p class="mb-4"><i class="fas fa-map-marker-alt text-primary mr-2"></i><strong>Lokasi:</strong> Jakarta Selatan</p>
+        <p class="mb-4"><i class="fas fa-money-bill-wave text-primary mr-2"></i><strong>Harga:</strong> Rp 1.500.000 / bulan</p>
+        <p class="mb-4"><i class="fas fa-bed text-primary mr-2"></i><strong>Tipe Kamar:</strong> Kamar Single</p>
+        <p class="mb-4"><i class="fas fa-bath text-primary mr-2"></i><strong>Fasilitas:</strong> Kamar mandi dalam, AC, Wifi, Dapur Bersama</p>
+        <p class="mb-4"><i class="fas fa-info-circle text-primary mr-2"></i><strong>Deskripsi:</strong> Kos Mawar Indah menawarkan kenyamanan dan keamanan di lokasi strategis dengan akses mudah ke kampus dan pusat kota.</p>
+        
+        <div class="flex items-center mb-4">
+          <div class="flex text-yellow-400">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <span class="text-gray-600 ml-2">4.5 (120 ulasan)</span>
+        </div>
+
+        <button class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-secondary">Hubungi Pemilik</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
