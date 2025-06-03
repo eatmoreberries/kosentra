@@ -6,58 +6,75 @@
   <title>Tambah Kos Baru - KosFinder</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen">
-  <!-- Header -->
-  <nav class="bg-white shadow p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold text-blue-600">KosFinder</h1>
-      <a href="dashboard-pemilik.html" class="text-blue-600 hover:underline">Kembali ke Dashboard</a>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-primary">KosFinder</a>
+      <div>
+        <a href="dashboard-pemilik.html" class="text-gray-700 hover:text-primary mr-6">Dashboard</a>
+        <a href="login.html" class="text-gray-700 hover:text-primary">Logout</a>
+      </div>
     </div>
   </nav>
 
-  <!-- Form Tambah Kos -->
-  <main class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded shadow">
-    <h2 class="text-2xl font-bold mb-6 text-gray-800">Tambah Kos Baru</h2>
-    <form id="formKos" class="space-y-5">
+  <!-- Main -->
+  <main class="container mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">Tambah Kos Baru</h1>
+
+    <form id="formKos" class="bg-white p-6 rounded-lg shadow-md space-y-4">
       <div>
-        <label class="block mb-1 text-gray-700">Nama Kos</label>
-        <input type="text" class="w-full border rounded p-2" required />
+        <label class="block mb-1 font-medium">Nama Kos</label>
+        <input type="text" name="nama" class="w-full border rounded px-3 py-2" required />
       </div>
+
       <div>
-        <label class="block mb-1 text-gray-700">Alamat</label>
-        <textarea class="w-full border rounded p-2" rows="2" required></textarea>
+        <label class="block mb-1 font-medium">Lokasi</label>
+        <input type="text" name="lokasi" class="w-full border rounded px-3 py-2" required />
       </div>
+
       <div>
-        <label class="block mb-1 text-gray-700">Kota</label>
-        <input type="text" class="w-full border rounded p-2" required />
+        <label class="block mb-1 font-medium">Harga per Bulan</label>
+        <input type="number" name="harga" class="w-full border rounded px-3 py-2" required />
       </div>
+
       <div>
-        <label class="block mb-1 text-gray-700">Harga per Bulan (Rp)</label>
-        <input type="number" class="w-full border rounded p-2" required />
+        <label class="block mb-1 font-medium">Deskripsi</label>
+        <textarea name="deskripsi" class="w-full border rounded px-3 py-2" rows="3" required></textarea>
       </div>
+
       <div>
-        <label class="block mb-1 text-gray-700">Fasilitas</label>
-        <input type="text" class="w-full border rounded p-2" placeholder="Contoh: AC, WiFi, Kamar Mandi Dalam" />
+        <label class="block mb-1 font-medium">URL Gambar Kos</label>
+        <input type="url" name="gambar" class="w-full border rounded px-3 py-2" required />
+        <p class="text-sm text-gray-500">Contoh: https://picsum.photos/400/300</p>
       </div>
-      <div>
-        <label class="block mb-1 text-gray-700">Deskripsi</label>
-        <textarea class="w-full border rounded p-2" rows="3"></textarea>
-      </div>
-      <div>
-        <label class="block mb-1 text-gray-700">Foto Kos</label>
-        <input type="file" accept="image/*" class="w-full border rounded p-2" />
-      </div>
-      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Simpan Kos</button>
+
+      <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">
+        Simpan Kos
+      </button>
     </form>
   </main>
 
-  <!-- Script -->
   <script>
-    const form = document.getElementById('formKos');
-    form.addEventListener('submit', (e) => {
+    document.getElementById('formKos').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert("Data kos berhasil disimpan! (belum terhubung ke database)");
-      window.location.href = "dashboard-pemilik.html";
+
+      const nama = this.nama.value.trim();
+      const lokasi = this.lokasi.value.trim();
+      const harga = this.harga.value;
+      const deskripsi = this.deskripsi.value.trim();
+      const gambar = this.gambar.value.trim();
+
+      const kosBaru = {
+        nama, lokasi, harga, deskripsi, gambar
+      };
+
+      const dataLama = JSON.parse(localStorage.getItem('daftarKos')) || [];
+      dataLama.push(kosBaru);
+      localStorage.setItem('daftarKos', JSON.stringify(dataLama));
+
+      alert('Kos berhasil ditambahkan!');
+      window.location.href = 'dashboard-pemilik.html';
     });
   </script>
 </body>
