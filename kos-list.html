@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daftar Kos - KosFinder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+</head>
+<body class="min-h-screen bg-gray-50">
+  <!-- Navigation (Sama seperti index.html) -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-primary">KosFinder</a>
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-secondary">Beranda</a>
+        <a href="kos-list.html" class="hover:text-secondary font-bold">Daftar Kos</a>
+        <a href="gallery.html" class="hover:text-secondary">Galeri</a>
+        <a href="reviews.html" class="hover:text-secondary">Ulasan</a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="login.html" class="px-4 py-2 rounded hover:bg-gray-100">Masuk</a>
+        <a href="register.html" class="px-4 py-2 bg-primary text-white rounded hover:bg-secondary">Daftar</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Daftar Kos Tersedia</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Contoh Kos Item -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+        <img
+          src="https://picsum.photos/400/300?random=201"
+          alt="Kos Melati"
+          class="w-full h-48 object-cover"
+          loading="lazy"
+        />
+        <div class="p-4">
+          <h3 class="font-bold text-xl mb-2">Kos Melati Asri</h3>
+          <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Yogyakarta</p>
+          <p class="text-gray-600 mb-2"><i class="fas fa-money-bill-wave text-primary mr-2"></i>Rp 1.300.000/bulan</p>
+          <a href="kos-detail.html" class="block mt-4 text-center bg-primary text-white py-2 rounded-lg hover:bg-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+        <img
+          src="https://picsum.photos/400/300?random=202"
+          alt="Kos Anggrek"
+          class="w-full h-48 object-cover"
+          loading="lazy"
+        />
+        <div class="p-4">
+          <h3 class="font-bold text-xl mb-2">Kos Anggrek Indah</h3>
+          <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Malang</p>
+          <p class="text-gray-600 mb-2"><i class="fas fa-money-bill-wave text-primary mr-2"></i>Rp 1.400.000/bulan</p>
+          <a href="kos-detail.html" class="block mt-4 text-center bg-primary text-white py-2 rounded-lg hover:bg-secondary">Lihat Detail</a>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+        <img
+          src="https://picsum.photos/400/300?random=203"
+          alt="Kos Dahlia"
+          class="w-full h-48 object-cover"
+          loading="lazy"
+        />
+        <div class="p-4">
+          <h3 class="font-bold text-xl mb-2">Kos Dahlia Bersih</h3>
+          <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Semarang</p>
+          <p class="text-gray-600 mb-2"><i class="fas fa-money-bill-wave text-primary mr-2"></i>Rp 1.250.000/bulan</p>
+          <a href="kos-detail.html" class="block mt-4 text-center bg-primary text-white py-2 rounded-lg hover:bg-secondary">Lihat Detail</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
