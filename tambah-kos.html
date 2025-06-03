@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tambah Kos Baru - KosFinder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <!-- Header -->
+  <nav class="bg-white shadow p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold text-blue-600">KosFinder</h1>
+      <a href="dashboard-pemilik.html" class="text-blue-600 hover:underline">Kembali ke Dashboard</a>
+    </div>
+  </nav>
+
+  <!-- Form Tambah Kos -->
+  <main class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded shadow">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Tambah Kos Baru</h2>
+    <form id="formKos" class="space-y-5">
+      <div>
+        <label class="block mb-1 text-gray-700">Nama Kos</label>
+        <input type="text" class="w-full border rounded p-2" required />
+      </div>
+      <div>
+        <label class="block mb-1 text-gray-700">Alamat</label>
+        <textarea class="w-full border rounded p-2" rows="2" required></textarea>
+      </div>
+      <div>
+        <label class="block mb-1 text-gray-700">Kota</label>
+        <input type="text" class="w-full border rounded p-2" required />
+      </div>
+      <div>
+        <label class="block mb-1 text-gray-700">Harga per Bulan (Rp)</label>
+        <input type="number" class="w-full border rounded p-2" required />
+      </div>
+      <div>
+        <label class="block mb-1 text-gray-700">Fasilitas</label>
+        <input type="text" class="w-full border rounded p-2" placeholder="Contoh: AC, WiFi, Kamar Mandi Dalam" />
+      </div>
+      <div>
+        <label class="block mb-1 text-gray-700">Deskripsi</label>
+        <textarea class="w-full border rounded p-2" rows="3"></textarea>
+      </div>
+      <div>
+        <label class="block mb-1 text-gray-700">Foto Kos</label>
+        <input type="file" accept="image/*" class="w-full border rounded p-2" />
+      </div>
+      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Simpan Kos</button>
+    </form>
+  </main>
+
+  <!-- Script -->
+  <script>
+    const form = document.getElementById('formKos');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert("Data kos berhasil disimpan! (belum terhubung ke database)");
+      window.location.href = "dashboard-pemilik.html";
+    });
+  </script>
+</body>
+</html>
