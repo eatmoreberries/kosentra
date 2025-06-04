@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edit Kos - KosFinder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-600">KosFinder</a>
+      <div>
+        <a href="dashboard-pemilik.html" class="text-gray-700 hover:text-blue-600 mr-6">Dashboard</a>
+        <a href="login.html" class="text-gray-700 hover:text-blue-600">Logout</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8 max-w-xl">
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Edit Kos</h1>
+
+    <form id="formEditKos" class="space-y-4">
+      <input id="namaKos" type="text" placeholder="Nama Kos" class="w-full border p-2 rounded" required />
+      <input id="lokasiKos" type="text" placeholder="Lokasi" class="w-full border p-2 rounded" required />
+      <input id="hargaKos" type="text" placeholder="Harga (contoh: Rp 1.500.000)" class="w-full border p-2 rounded" required />
+      <input id="gambarKos" type="text" placeholder="Link Gambar" class="w-full border p-2 rounded" required />
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Simpan Perubahan</button>
+    </form>
+
+    <p id="notFoundMsg" class="text-red-600 mt-6 hidden">Kos tidak ditemukan.</p>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 mt-12 text-center">
+    &copy; 2025 KosFinder. All rights reserved.
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const kosId = parseInt(params.get("id"));
+
+    const kosList = JSON.parse(localStorage.getItem("kosList")) || [];
+    const kos = kosList.find(k => k.id === kosId);
+
+    const form = document.getElementById("formEditKos");
+    const notFoundMsg = document.getElementById("notFoundMsg");
+
+    if (!kos) {
+      form.classList.add("hidden");
+      notFoundMsg.classList.remove("hidden");
+    } else {
+      document.getElementById("namaKos").value = kos.nama;
+      document.getElementById("lokasiKos").value = kos.lokasi;
+      document.getElementById("hargaKos").value = kos.harga;
+      document.getElementById("gambarKos").value = kos.gambar;
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Update data
+        kos.nama = document.getElementById("namaKos").value;
+        kos.lokasi = document.getElementById("lokasiKos").value;
+        kos.harga = document.getElementById("hargaKos").value;
+        kos.gambar = document.getElementById("gambarKos").value;
+
+        // Simpan ke localStorage
+        localStorage.setItem("kosList", JSON.stringify(kosList));
+
+        alert("Kos berhasil diperbarui!");
+        window.location.href = "dashboard-pemilik.html";
+      });
+    }
+  </script>
+</body>
+</html>
